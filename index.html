@@ -19,142 +19,32 @@
       --grid-color: rgba(45, 59, 94, 0.3);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { min-height: 100vh; background: var(--bg-deep); color: var(--text-primary); font-family: 'Outfit', sans-serif; overflow-x: hidden; }
 
-    body {
-      min-height: 100vh;
-      background: var(--bg-deep);
-      color: var(--text-primary);
-      font-family: 'Outfit', sans-serif;
-      overflow-x: hidden;
-    }
-
-    /* Decorative Background */
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      opacity: 0.6;
-    }
-
-    .gradient-orb {
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.15;
-      pointer-events: none;
-    }
+    .grid-bg { position: fixed; inset: 0; background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; opacity: 0.6; }
+    .gradient-orb { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(120px); opacity: 0.15; pointer-events: none; }
     .gradient-orb-1 { top: -200px; left: -200px; background: var(--accent-orange); }
     .gradient-orb-2 { bottom: -200px; right: -200px; background: var(--accent-blue); }
 
-    /* Layout */
-    .container {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
+    .container { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; text-align: center; }
     .logo-wrap { margin-bottom: 3rem; }
     .logo-wrap img { height: 56px; width: auto; display: block; }
 
-    .tagline {
-      font-size: clamp(0.75rem, 2vw, 0.9rem);
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
+    .tagline { font-size: clamp(0.75rem, 2vw, 0.9rem); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.35em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .headline { font-size: clamp(1.5rem, 5vw, 2.25rem); font-weight: 700; letter-spacing: 0.02em; margin-bottom: 3rem; background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-    .headline {
-      font-size: clamp(1.5rem, 5vw, 2.25rem);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      margin-bottom: 3rem;
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    .countdown { display: flex; flex-wrap: nowrap; gap: clamp(0.5rem, 2vw, 2rem); justify-content: center; margin-bottom: 3rem; }
+    .unit { display: flex; flex-direction: column; align-items: center; min-width: clamp(65px, 15vw, 90px); }
+    .unit-value { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; color: var(--text-primary); text-shadow: 0 0 40px var(--accent-orange-glow); padding: 0.5rem 0.25rem; border: 1px solid var(--grid-color); border-radius: 8px; background: rgba(15, 22, 41, 0.7); backdrop-filter: blur(8px); width: 100%; }
+    .unit-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.5rem; }
 
-    /* Countdown Styling */
-    .countdown {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: clamp(0.5rem, 2vw, 2rem);
-      justify-content: center;
-      margin-bottom: 3rem;
-    }
-
-    .unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: clamp(65px, 15vw, 90px);
-    }
-
-    .unit-value {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(1.8rem, 6vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--text-primary);
-      text-shadow: 0 0 40px var(--accent-orange-glow);
-      padding: 0.5rem 0.25rem;
-      border: 1px solid var(--grid-color);
-      border-radius: 8px;
-      background: rgba(15, 22, 41, 0.7);
-      backdrop-filter: blur(8px);
-      width: 100%;
-    }
-
-    .unit-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-
-    .countdown-intro {
-      font-size: clamp(0.9rem, 2.5vw, 1.25rem);
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-    .countdown-intro span { color: var(--text-primary); font-weight: 600; }
-
-    .divider {
-      width: 1px;
-      height: 40px;
-      align-self: center;
-      background: linear-gradient(to bottom, transparent, var(--accent-orange), transparent);
-      opacity: 0.4;
-    }
-
+    .countdown-intro { font-size: clamp(0.9rem, 2.5vw, 1.25rem); color: var(--text-muted); margin-bottom: 1.5rem; }
+    .divider { width: 1px; height: 40px; align-self: center; background: linear-gradient(to bottom, transparent, var(--accent-orange), transparent); opacity: 0.4; }
     .footer-note { font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem; }
     .footer-note a { color: var(--accent-orange); text-decoration: none; }
 
-    @media (max-width: 480px) {
-      .divider { display: none; }
-      .countdown { gap: 0.5rem; }
-    }
+    @media (max-width: 480px) { .divider { display: none; } .countdown { gap: 0.5rem; } }
   </style>
 </head>
 <body>
@@ -170,44 +60,26 @@
     <h1 class="headline">Something highly tech is coming</h1>
 
     <p class="countdown-intro">
-      🚀 Countdown: <span id="countdown-text" aria-live="polite">3 days 7 hours 43 minutes</span> left
+      🚀 Countdown: <span id="countdown-text">Syncing with server...</span>
     </p>
     
     <div class="countdown" role="timer">
-      <div class="unit">
-        <span class="unit-value" id="days">03</span>
-        <span class="unit-label">Days</span>
-      </div>
-      <div class="divider" aria-hidden="true"></div>
-      <div class="unit">
-        <span class="unit-value" id="hours">07</span>
-        <span class="unit-label">Hours</span>
-      </div>
-      <div class="divider" aria-hidden="true"></div>
-      <div class="unit">
-        <span class="unit-value" id="minutes">43</span>
-        <span class="unit-label">Minutes</span>
-      </div>
-      <div class="divider" aria-hidden="true"></div>
-      <div class="unit">
-        <span class="unit-value" id="seconds">00</span>
-        <span class="unit-label">Seconds</span>
-      </div>
+      <div class="unit"><span class="unit-value" id="days">--</span><span class="unit-label">Days</span></div>
+      <div class="divider"></div>
+      <div class="unit"><span class="unit-value" id="hours">--</span><span class="unit-label">Hours</span></div>
+      <div class="divider"></div>
+      <div class="unit"><span class="unit-value" id="minutes">--</span><span class="unit-label">Minutes</span></div>
+      <div class="divider"></div>
+      <div class="unit"><span class="unit-value" id="seconds">--</span><span class="unit-label">Seconds</span></div>
     </div>
 
-    <p class="footer-note">
-      You’ll be redirected to <a href="https://xoorix.com">xoorix.com</a> when we’re live.
-    </p>
+    <p class="footer-note">You’ll be redirected to <a href="https://xoorix.com">xoorix.com</a> when we’re live.</p>
   </main>
 
   <script>
     (function () {
-      /**
-       * FIXED LAUNCH DATE: March 15, 2026, 10:31:00 UTC
-       * This is approximately 3 days, 7 hours, and 43 minutes from now (March 12, 02:48 UTC).
-       * Using a fixed string ensures it does NOT reset on refresh.
-       */
       const launchDate = new Date("2026-03-15T10:31:00Z").getTime();
+      let timeOffset = 0; // The difference between user clock and server clock
 
       const els = {
         days: document.getElementById('days'),
@@ -217,13 +89,29 @@
         text: document.getElementById('countdown-text')
       };
 
+      // 1. Fetch exact time from an API to calculate the offset
+      async function syncTime() {
+        try {
+          const start = Date.now();
+          const response = await fetch('https://worldtimeapi.org/api/timezone/Etc/UTC');
+          const data = await response.json();
+          const serverTime = new Date(data.datetime).getTime();
+          const latancy = (Date.now() - start) / 2;
+          
+          // Calculate how much the user's clock is "off" compared to global UTC
+          timeOffset = (serverTime + latancy) - Date.now();
+        } catch (e) {
+          console.error("Time sync failed, falling back to local clock.");
+        }
+      }
+
       function pad(n) { return String(n).padStart(2, '0'); }
 
       function tick() {
-        const now = new Date().getTime();
+        // Apply the offset to the local time to get "True UTC"
+        const now = Date.now() + timeOffset;
         const diff = launchDate - now;
 
-        // On completion: redirect to main site
         if (diff <= 0) {
           window.location.replace('https://xoorix.com');
           return;
@@ -234,20 +122,20 @@
         const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-        // Performance Check: Only update DOM if text actually changed
         if (els.days.textContent !== pad(d)) els.days.textContent = pad(d);
         if (els.hours.textContent !== pad(h)) els.hours.textContent = pad(h);
         if (els.minutes.textContent !== pad(m)) {
           els.minutes.textContent = pad(m);
-          // Accessibility: Update text string for screen readers every minute
-          els.text.textContent = `${d} day${d!==1?'s':''} ${h} hour${h!==1?'s':''} ${m} minute${m!==1?'s':''}`;
+          els.text.textContent = `${d} days ${h} hours ${m} minutes left`;
         }
         els.seconds.textContent = pad(s);
       }
 
-      // Initial run and set interval
-      tick();
-      setInterval(tick, 1000);
+      // Initialize
+      syncTime().then(() => {
+        tick();
+        setInterval(tick, 1000);
+      });
     })();
   </script>
 </body>
