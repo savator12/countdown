@@ -405,12 +405,8 @@
 
   <script>
     (function () {
-      // Target: 3 days, 7 hours, 43 minutes from when the page loads
-      var launchDate = new Date();
-      launchDate.setDate(launchDate.getDate() + 3);
-      launchDate.setHours(launchDate.getHours() + 7);
-      launchDate.setMinutes(launchDate.getMinutes() + 43);
-      launchDate.setSeconds(0, 0);
+      // Fixed launch date – same countdown for everyone (Year, Month-1, Day, Hour, Minute, Second)
+      var launchDate = new Date(2025, 5, 18, 12, 0, 0); // June 18, 2025, 12:00
 
       var daysEl = document.getElementById('days');
       var hoursEl = document.getElementById('hours');
