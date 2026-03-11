@@ -405,8 +405,9 @@
 
   <script>
     (function () {
-      // Fixed launch date – same countdown for everyone (Year, Month-1, Day, Hour, Minute, Second)
-      var launchDate = new Date(2025, 5, 18, 12, 0, 0); // June 18, 2025, 12:00
+      // Single fixed launch date – same countdown for everyone; refresh does not reset it
+      // Edit here: new Date(year, month-1, day, hour, minute, second)
+      var launchDate = new Date(2026, 5, 18, 12, 0, 0); // June 18, 2026, 12:00
 
       var daysEl = document.getElementById('days');
       var hoursEl = document.getElementById('hours');
