@@ -19,7 +19,11 @@
       --grid-color: rgba(45, 59, 94, 0.3);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       min-height: 100vh;
@@ -29,6 +33,7 @@
       overflow-x: hidden;
     }
 
+    /* Decorative Background */
     .grid-bg {
       position: fixed;
       inset: 0;
@@ -52,6 +57,7 @@
     .gradient-orb-1 { top: -200px; left: -200px; background: var(--accent-orange); }
     .gradient-orb-2 { bottom: -200px; right: -200px; background: var(--accent-blue); }
 
+    /* Layout */
     .container {
       position: relative;
       z-index: 1;
@@ -87,6 +93,7 @@
       background-clip: text;
     }
 
+    /* Countdown Styling */
     .countdown {
       display: flex;
       flex-wrap: nowrap;
@@ -195,10 +202,12 @@
 
   <script>
     (function () {
-      // SETTING TARGET: Exactly 3 days, 7 hours, 43 minutes from now
-      const nowTime = new Date().getTime();
-      const targetDuration = (3 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (43 * 60 * 1000);
-      const launchDate = nowTime + targetDuration;
+      /**
+       * FIXED LAUNCH DATE: March 15, 2026, 10:31:00 UTC
+       * This is approximately 3 days, 7 hours, and 43 minutes from now (March 12, 02:48 UTC).
+       * Using a fixed string ensures it does NOT reset on refresh.
+       */
+      const launchDate = new Date("2026-03-15T10:31:00Z").getTime();
 
       const els = {
         days: document.getElementById('days'),
@@ -214,6 +223,7 @@
         const now = new Date().getTime();
         const diff = launchDate - now;
 
+        // On completion: redirect to main site
         if (diff <= 0) {
           window.location.replace('https://xoorix.com');
           return;
@@ -224,15 +234,18 @@
         const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((diff % (1000 * 60)) / 1000);
 
+        // Performance Check: Only update DOM if text actually changed
         if (els.days.textContent !== pad(d)) els.days.textContent = pad(d);
         if (els.hours.textContent !== pad(h)) els.hours.textContent = pad(h);
         if (els.minutes.textContent !== pad(m)) {
           els.minutes.textContent = pad(m);
+          // Accessibility: Update text string for screen readers every minute
           els.text.textContent = `${d} day${d!==1?'s':''} ${h} hour${h!==1?'s':''} ${m} minute${m!==1?'s':''}`;
         }
         els.seconds.textContent = pad(s);
       }
 
+      // Initial run and set interval
       tick();
       setInterval(tick, 1000);
     })();
